@@ -23,7 +23,6 @@ export class UsersService {
     }
   }
 
-
   async remove(payload: any) {
     await this.redisService.del(payload.email)
 
