@@ -1,7 +1,8 @@
 import { Field, InputType } from "@nestjs/graphql";
+import { Post } from "src/posts/posts.model";
 
 @InputType()
-export class CreateDto {
+export class UserCreateDto {
   @Field()
   name: string;
 
@@ -10,4 +11,7 @@ export class CreateDto {
 
   @Field()
   age: number;
+
+//   @Field(()=>[Post], {nullable:true})
+//   posts:Post[]
 }

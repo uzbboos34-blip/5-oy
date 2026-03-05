@@ -1,9 +1,13 @@
 import { Field, ObjectType } from "@nestjs/graphql";
+import { Post } from "src/posts/posts.model";
 
 
 @ObjectType()
 
 export class User{
+    @Field()
+    id:number
+
     @Field()
     name:string
 
@@ -12,13 +16,16 @@ export class User{
 
     @Field()
     age:number
+
+    @Field(()=>[Post], {nullable:true})
+    posts:Post[]
 }
 @ObjectType()
-export class CreateRes{
+export class UserCreateRes {
     @Field()
-    success : boolean
-    
+    success: boolean
+
     @Field()
-    message:string
+    message: string
 
 }
